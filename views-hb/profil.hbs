@@ -1,0 +1,27 @@
+{{#if user}}
+	<div class="page-header">
+		<h1>Profil of {{user.name}}</h1>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-3">
+			<h2>Avatar</h2>
+			<img class="img-responsive" src="http://lorempicsum.com/futurama/255/200/5" alt="{{user.email}}">
+		</div>
+		<div class="col-md-9">
+			<h2>Informations :</h2>
+			<div class="card card-block">
+				<ul>
+					<li>Name: {{user.name}}</li>
+					<li>Login: {{user.login}}</li>
+					<li>Email: {{user.email}}</li>
+					<li>Password: {{user.password}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+{{else}}
+	<div class="page-header">
+		<h1><strong>Oups!</strong> User not found</h1>
+	</div>
+{{/if}}

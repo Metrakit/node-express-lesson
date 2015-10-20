@@ -1,1 +1,49 @@
-login page
+<div class="page-header text-center m-b-md">
+	<h1>Login page</h1>
+</div>
+
+<div class="row">
+	<div class="col-md-offset-2 col-md-6">
+
+		{{#if errors}}
+			<div class="alert alert-danger">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				<strong>NOP!</strong> Invalid credentials
+			</div>
+		{{/if}}
+		<form method="POST" role="form">
+			<legend>Your credentials :</legend>
+
+			<p>Example:</p>
+			<ul>
+				<li>Email: <code>user3@test.dev</code></li>
+				<li>Password: <code>654321</code></li>
+			</ul>
+
+			<div class="form-group {{#if errors.email}} has-error {{/if}}">
+				<label for="email" class="control-label">Email</label>
+				<input type="email" class="form-control" id="email" name="email" placeholder="contact@example.com" value="{{errors.email.value}}">
+				{{#if errors.email}}
+					<p class="text-danger">{{errors.email.msg}}</p>
+				{{/if}}
+			</div>
+
+			<div class="form-group {{#if errors.password}} has-error {{/if}}">
+				<label for="password" class="control-label">Password</label>
+				<input type="password" class="form-control" id="password" name="password" placeholder="p@$$w0rd" value="{{errors.password.value}}">
+				{{#if errors.password}}
+					<p class="text-danger">{{errors.password.msg}}</p>
+				{{/if}}
+			</div>
+
+			<div class="checkbox">
+				<label>
+					<input name="remember" type="checkbox"> Remember me
+				</label>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+
+	</div>
+</div>

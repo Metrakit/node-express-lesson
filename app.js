@@ -1,38 +1,65 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
+var express      = require('express');
+var path         = require('path');
+var favicon      = require('serve-favicon');
+var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var bodyParser   = require('body-parser');
 
+/* Templating libraries */
 var ejs = require('ejs');
-var hb = require('express-handlebars');
+var hb  = require('express-handlebars');
 
+/* A node.js module for parsing form data, especially file uploads. */
+var formidable = require('express-formidable');
+/* Node module for input rules */
+var validator = require('express-validator');
+/* Node module for session */
+var session = require('express-session');
+
+/* Include routes */
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var users  = require('./routes/users');
 
+/* Intialize the express app */
 var app = express();
 
+/* Handlebars templating */
 app.set('views', path.join(__dirname, 'views-hb'));
 app.engine('.hbs', hb({
-  defaultLayout: 'default', 
-  extname: '.hbs', 
+  defaultLayout: 'default',
+  extname: '.hbs',
   layoutsDir: 'views-hb/layouts',
   partialsDir: 'views-hb/partials'
 }));
 app.set('view engine', '.hbs');
 
+/* EJS templating */
 // app.set('views', path.join(__dirname, 'views-ejs'));
 // app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(validator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/* Intialize the library for parse form data */
+app.use(formidable.parse());
+
+/* Initialize the sessions */
+app.use(session({secret: 'ceclair', resave: true, saveUninitialized: true}));
+
+app.use(function(req, res, next) {
+  res.locals = {
+    logged: req.session.auth,
+    auth: req.session.user
+  };
+  next();
+});
+
+/* Intialize routing */
 app.use('/', routes);
 app.use('/users', users);
 

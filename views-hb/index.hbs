@@ -1,2 +1,21 @@
-<p>Express with Handlebars</p>
-<p><a href="/login" class="btn btn-success">Connexion</a></p>
+{{#if logged}}
+	{{#if msg}}
+		<div class="alert alert-success">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<strong>Great!</strong>
+		</div>
+	{{/if}}
+
+	<h1>Hi <strong>{{auth.login}}</strong></h1>
+{{/if}}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">Express &amp; NodeJS APP</h1>
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, laboriosam, ad. Vel similique eveniet, cupiditate laudantium nisi, optio accusamus autem architecto obcaecati perferendis doloremque. Voluptatum cumque, at veritatis vero aut.</p>
+  </div>
+</div>
+
+{{#unless logged}}
+	<p><a href="/login" class="btn btn-success">Connexion</a></p>
+{{/unless}}

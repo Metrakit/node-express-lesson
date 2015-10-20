@@ -1,0 +1,23 @@
+<div class="page-header">
+	<h1>My account</h1>
+</div>
+<hr>
+<div class="row">
+	<div class="col-md-3">
+		<h2>My avatar :</h2>
+		<img class="img-responsive" src="http://lorempicsum.com/futurama/255/200/6" alt="{{auth.email}}">
+		<hr />
+		<a href="/logout" class="btn btn-block btn-danger">Me déconnecter</a>
+	</div>
+	<div class="col-md-9">
+		<h2>My informations :</h2>
+		<div class="card card-block">
+			<ul>
+				<li>Name: {{auth.name}}</li>
+				<li>Login: {{auth.login}}</li>
+				<li>Email: {{auth.email}}</li>
+				<li>Password: {{auth.password}}</li>
+			</ul>
+		</div>
+	</div>
+</div>
