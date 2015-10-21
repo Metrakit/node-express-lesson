@@ -5,7 +5,7 @@ var pollController = require('../controllers/poll');
 
 router.get('/', pollController.index)
 .get('/list', pollController.list)
-.get('/:id', pollController.show)
-.post('/create', pollController.create);
+.get('/create', pollController.create)
+.get('/:id', pollController.show);
 
 module.exports = router;

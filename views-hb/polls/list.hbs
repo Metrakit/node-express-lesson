@@ -1,0 +1,39 @@
+<div class="page-header row">
+	<div class="col-md-8">
+		<h1>Polls list</h1>
+	</div>
+	<div class="col-md-4">
+		<a href="/polls/create" class="btn btn-warning pull-right">Add a new poll</a>
+	</div>
+</div>
+<hr class="m-t-0">
+
+{{#if votes}}
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Questions</th>
+				<th>Answers</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each votes}}
+				<tr>
+					<td><a href="/polls/{{id}}">{{question}}</a></td>
+					<td>
+						<ul>
+						{{#each choices}}
+							<li>{{votes}}</li>
+						{{/each}}
+						</ul>
+					</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+{{else}}
+	<div class="alert alert-warning">
+		<strong>Nop!</strong> No polls found...
+	</div>
+{{/if}}
+
