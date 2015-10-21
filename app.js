@@ -19,6 +19,7 @@ var session = require('express-session');
 /* Include routes */
 var routes = require('./routes/index');
 var users  = require('./routes/users');
+var polls  = require('./routes/polls');
 
 /* Intialize the express app */
 var app = express();
@@ -62,6 +63,7 @@ app.use(function(req, res, next) {
 /* Intialize routing */
 app.use('/', routes);
 app.use('/users', users);
+app.use('/polls', polls);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

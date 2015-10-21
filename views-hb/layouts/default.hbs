@@ -9,7 +9,10 @@
 						<a class="nav-link" href="/">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/user-list">User-list</a>
+						<a class="nav-link" href="/polls">Polls</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/users">User-list</a>
 					</li>
 					{{#if logged}}
 						<li class="nav-item">
@@ -22,13 +25,13 @@
 						<li class="nav-item">
 							<a class="nav-link" href="/login">Login</a>
 						</li>
-						<li class="nav-item">
+						<!-- <li class="nav-item">
 							<a class="nav-link" href="#">Register</a>
-						</li>
+						</li> -->
 					{{/if}}
 
 					<form class="form-inline navbar-form pull-right m-b-0 m-l-md" role="search" action="/search" method="POST">
-						<input type="text" class="form-control" name="keyword">
+						<input type="text" class="form-control" name="keyword" placeholder="Search something">
 					</form>
 				</ul>
 			</div>

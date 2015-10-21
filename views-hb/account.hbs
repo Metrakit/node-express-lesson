@@ -13,10 +13,10 @@
 		<h2>My informations :</h2>
 		<div class="card card-block">
 			<ul>
-				<li>Name: {{auth.name}}</li>
-				<li>Login: {{auth.login}}</li>
-				<li>Email: {{auth.email}}</li>
-				<li>Password: {{auth.password}}</li>
+				<li>Name: <a class="text-muted" href="/users/{{auth.login}}">{{auth.name}}</a></li>
+				<li>Login: <span class="text-muted">{{auth.login}}</span></li>
+				<li>Email: <span class="text-muted">{{auth.email}}</span></li>
+				<li>Password: <span class="text-muted">{{auth.password}}</span></li>
 			</ul>
 		</div>
 	</div>
